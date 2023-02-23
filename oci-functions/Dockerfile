@@ -9,10 +9,10 @@ ADD . /function/
 RUN rm -fr /function/.pip_cache
 
 FROM fnproject/python:3.6
-RUN microdnf install oracle-epel-release-el8 &&\
-      microdnf install ImageMagick &&\
-      microdnf remove oracle-epel-release-el8 &&\
-      microdnf clean all
+#RUN microdnf install oracle-epel-release-el8 &&\
+#      microdnf install ImageMagick &&\
+#      microdnf remove oracle-epel-release-el8 &&\
+#      microdnf clean all
 WORKDIR /function
 COPY --from=build-stage /python /python
 COPY --from=build-stage /function /function

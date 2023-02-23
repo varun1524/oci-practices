@@ -1,25 +1,12 @@
-#
-# imagedims-python version 1.0.
-#
-# Copyright (c) 2020 Oracle, Inc.
-# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
-#
-
-import io
 import json
-import tempfile
 
 from fdk import response
-from wand.image import Image
 
-def handler(ctx, data: io.BytesIO=None):
-    resp = {}
-    with tempfile.TemporaryFile() as tempf:
-        tempf.write(data.getbuffer())
-        tempf.seek(0)
-        with Image(file = tempf) as img:
-            resp["width"] = img.width
-            resp["height"] = img.height
+
+def handler(ctx, func_input):
+    print("func_input: ", func_input)
+    print("ctx: ", ctx)
+    resp = {"foo": "bar"}
 
     return response.Response(
         ctx,
