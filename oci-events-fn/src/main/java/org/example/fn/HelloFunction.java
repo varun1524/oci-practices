@@ -1,4 +1,4 @@
-package org.example;
+package org.example.fn;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cloudevents.CloudEvent;
@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class HelloFunction {
 
-    public Void handleRequest(CloudEvent event) throws IOException {
+    public String handleRequest(CloudEvent event) throws IOException {
         System.out.println("Starting handleRequest" + event.toString());
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        Map data = objectMapper.convertValue(event.getData().get(), Map.class);
@@ -30,7 +30,7 @@ public class HelloFunction {
 //        System.out.println(objectMapper.writeValueAsString(metadata));
 
 //        return metadata;
-        return null;
+        return event.toString();
     }
 
 }
